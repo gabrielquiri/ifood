@@ -44,10 +44,10 @@ const api = createApi({
       query: () => 'restaurantes'
     }),
     getPageRestaurante: builder.query<Restaurante, string>({
-      query: (id) => `restaurantes/${id}`
+      query: (id: never) => `restaurantes/${id}`
     }),
     purchase: builder.mutation<PurchaseResponseType, PurchasePayload>({
-      query: (body) => ({
+      query: (body: unknown) => ({
         url: 'checkout',
         method: 'POST',
         body: body
